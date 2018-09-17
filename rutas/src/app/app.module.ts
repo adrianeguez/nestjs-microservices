@@ -8,6 +8,12 @@ import { InicioResolver } from './principal/ruta-inicio/resolver/inicio-resolver
 import { RutaQueryParamsComponent } from './principal/ruta-query-params/ruta-query-params.component';
 import { RevisarUsuarioIdGuard } from './principal/ruta-query-params/canActivate/revisar-usuario-id-guard';
 import { GUARDS_RUTA_QUERY } from './principal/ruta-query-params/canActivate/guards-ruta-query';
+import { DashboardModule } from './dashboard/dashboard/dashboard.module';
+import { MostrarUsuarioComponent } from './usuario/mostrar-usuario/mostrar-usuario.component';
+import { FeatureModuleModule } from './feature-module/feature-module.module';
+import { ButtonModule } from 'primeng/button';
+import { JoyaModule } from './joya/joya.module';
+import { PastelModule } from './pastel/pastel.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,8 @@ import { GUARDS_RUTA_QUERY } from './principal/ruta-query-params/canActivate/gua
   ],
   imports: [
     BrowserModule,
+    FeatureModuleModule,
+    JoyaModule, // Se carga al principio subiendo el peso de la aplicacion
     RouterModule.forRoot([
       {
         path: 'inicio',
@@ -35,7 +43,11 @@ import { GUARDS_RUTA_QUERY } from './principal/ruta-query-params/canActivate/gua
       },
       {
         path: 'usuario',
-        loadChildren: 'src/app/usuario/usuario.module#UsuarioModule'
+        loadChildren: 'src/app/usuario/usuario.module#UsuarioModule' // Se carga al principio subiendo el peso de la aplicacion
+      },
+      {
+        path: 'jug',
+        loadChildren: 'src/app/juguetes/juguetes.module#JuguetesModule' // Se carga al principio subiendo el peso de la aplicacion
       },
       {
         path: '',
@@ -50,7 +62,9 @@ import { GUARDS_RUTA_QUERY } from './principal/ruta-query-params/canActivate/gua
         useHash: true,
         // enableTracing: true
       }
-    )
+    ),
+    DashboardModule,
+    PastelModule
   ],
   providers: [
     InicioResolver,

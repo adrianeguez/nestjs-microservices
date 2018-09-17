@@ -21,7 +21,10 @@ export class RevisarUsuarioIdGuard implements CanActivate {
         state: RouterStateSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
         const usuarioId = route.paramMap.get('usuarioId')
+
         const puedeEntrar = this.usuarioIdValidosEjemplo.some((uId) => uId === +usuarioId);
+
+
         if (puedeEntrar) {
             return puedeEntrar;
         }
