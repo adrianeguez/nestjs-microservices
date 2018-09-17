@@ -9,7 +9,7 @@ export class InicioResolver implements Resolve<string> {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<string> | Promise<string> | string {
-        console.log('Inicio Resolver');
+        console.log('Inicio Resolver antes de cargar la pantalla');
         return 'bienvenido';
     }
 

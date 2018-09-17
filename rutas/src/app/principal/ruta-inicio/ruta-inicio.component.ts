@@ -11,6 +11,7 @@ export class RutaInicioComponent implements OnInit {
   constructor(private readonly _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('Empezando la ruta');
     this._activatedRoute
       .data
       .subscribe((params) => {
